@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  postgresql:
+    container_name: postgresql-11a
+    hostname: postgresql-11
+    image: postgres:11-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - PGDATA=/var/lib/postgresql/data
+    ports:
+      - '5432:5432'

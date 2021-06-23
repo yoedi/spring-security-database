@@ -1,13 +1,12 @@
-version: "3.7"
+version: '3.8'
 
 services:
-  postgresql:
-    container_name: postgresql-11a
-    hostname: postgresql-11
-    image: postgres:11-alpine
+  voucher-db:
+    container_name: mysql-auth
+    hostname: mysql-8
+    image: mysql:8.0.25
     restart: unless-stopped
     environment:
-      - POSTGRES_PASSWORD=admin
-      - PGDATA=/var/lib/postgresql/data
+      - MYSQL_ROOT_PASSWORD=auth
     ports:
-      - '5432:5432'
+      - '33062:3306'
